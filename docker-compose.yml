@@ -2,7 +2,7 @@ version: '3'
 
 services:
  fastapi:
-   images: image-fastapi
+   image: image-fastapi
    build: .
    container_name: fastapi-application 
    ports:

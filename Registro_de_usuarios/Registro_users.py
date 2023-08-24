@@ -11,7 +11,7 @@ async def create_user(user: User):
   new_user = dict(user)
   del new_user ["id"]
   new_user["password"] = sha256_crypt.encrypt(new_user["password"])
-  new_user["Usuario"] = sha256_crypt.encrypt(new_user["Usuario"])
+  new_user["name_user"] = sha256_crypt.encrypt(new_user["name_user"])
   id = conm.DataBase_Full.Usuarios.insert_one(new_user).inserted_id
   user = conm.DataBase_Full.Usuarios.find_one({"_id": id})
   return ("Haz sido registrado con exitos")
