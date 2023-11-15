@@ -1,9 +1,21 @@
 version: '3'
 
 services:
- fastapi:
-   image: image-fastapi
-   build: .
-   container_name: fastapi-application 
-   ports:
-    - "8000:8000"
+  fastapi:
+    image: image-fastapi
+    build: .
+    container_name: fastapi-application
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: mydatabase

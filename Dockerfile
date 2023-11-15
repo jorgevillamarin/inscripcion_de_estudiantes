@@ -6,7 +6,6 @@ COPY requirements.txt .
 #RUN python -m venv venv 
 #RUN /bin/bash -c "source venv/bin/activate"
 RUN pip install -r requirements.txt
-RUN python -m venv venv
 COPY . . 
 EXPOSE 8000
 CMD [ "uvicorn", "Main:app", "--reload", "--host", "0.0.0.0", "--port", "8000" ]
